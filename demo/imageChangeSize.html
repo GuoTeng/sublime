@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>imageChangeSize</title>
+    <style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    html {
+        background-color: silver;
+    }
+    
+    #panel {
+        height: 800px;
+        width: 600px;
+        margin: 20px auto;
+    }
+    
+    #panel #imgBox {
+        height: 150px;
+        width: 150px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="panel">
+        <div>
+            <input type="button" id="zoomIn" value="zoom in">
+            <input type="button" id="zoomOut" value="zoom out">
+        </div>
+        <div id="imgBox">
+            <img id="img" src="./imgs/Koala.jpg">
+        </div>
+    </div>
+    <script type="text/javascript">
+    var timerIn;
+    var timerOut;
+    var img = document.getElementById("img");
+    window.onload = function() {
+        document.getElementById("zoomIn").onclick = function() {
+        	var endHeight = img.height*1.3;
+            timerIn = setInterval(zoomIn(endHeight), 20);
+        };
+        document.getElementById("zoomOut").onclick = function(){
+        	var endHeight = img.height*0.7;
+        	timerOut = setInterval(zoomOut(endHeight),20);
+        };
+    }
+
+    function zoomIn(endHeight) {
+        // alert("hhhh");
+        // alert(img.height);
+        if (img.height > endHeight) {
+	        clearInterval(timerIn);
+        } else {
+        	while(img.height < endHeight){
+	        	img.height = img.height * 1.05;
+		        img.width = img.width * 1.05;
+        	}
+        	
+        }
+    }
+
+    function zoomOut(endHeight) {
+    	if(img.height < endHeight){
+    		clearInterval(timerOut);
+    	}else{
+	        while (img.height > endHeight) {
+		        img.height = img.height * 0.95;
+		        img.width = img.width * 0.95;
+	        }
+    	}
+    }
+    </script>
+</body>
+
+</html>

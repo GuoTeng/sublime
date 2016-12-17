@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator</title>
+	<style type="text/css">
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		html {
+			background-color: lightslategrey;
+		}
+		#panel {
+			margin-top: 100px;
+			margin-left: 600px;
+			width: 400px;
+			height: 500px;
+			background-color: lightgrey;
+		}
+		#panel #header {
+			height: 30px;
+			width: 400px;
+		}
+		#panel #header #headLeft{
+			float: left;
+			margin-left: 5px;
+		}
+		#panel #header #headRight{
+			float: right;
+			margin-right: 5px;
+		}
+		#panel #screenPackage {
+			height: 50px;
+			margin-top: 20px;
+		}
+		#panel #screenPackage #screen {
+			text-align: right;
+			height: 30px;
+			width: 350px;
+			margin-left: 25px;
+			margin-right: 25px;
+		}
+		#panel #btns {
+			margin-left: 25px;
+			margin-right: 25px;
+		}
+		#panel #btns .btn {
+			width: 60px;
+			height: 60px;
+			float: left;
+			margin-top: 10px;
+			margin-left: 8px;
+		}
+		#panel #foot {
+
+			margin-left: 25px;
+			margin-right: 25px;
+		}
+		#panel #foot #footLeft {
+			float: left;
+		}
+		#panel #foot #footRight {
+			float: right;
+		}
+		#panel #btns #equal {
+			width: 128px;
+		}
+	</style>
+</head>
+<body onload="load()">
+	<div id="panel">
+		<div id="header">
+			<span id="headLeft">Simple Calculator</span>
+			<span id="headRight">Version1.0</span>
+		</div>
+		<div id="screenPackage">
+			<input type="text" id="screen" name="screen">
+		</div>
+		<div id="btns">
+			<button class="btn" id="7" onclick="input(this.id)">7</button>
+			<button class="btn" id="8" onclick="input(this.id)">8</button>
+			<button class="btn" id="9" onclick="input(this.id)">9</button>
+			<button class="btn" id="Back" onclick="back()">Back</button>
+			<button class="btn" id="C" onclick="c()">C</button>
+			<button class="btn" id="4" onclick="input(this.id)">4</button>
+			<button class="btn" id="5" onclick="input(this.id)">5</button>
+			<button class="btn" id="6" onclick="input(this.id)">6</button>
+			<button class="btn" id="*" onclick="input(this.id)">*</button>
+			<button class="btn" id="/" onclick="input(this.id)">/</button>
+			<button class="btn" id="1" onclick="input(this.id)">1</button>
+			<button class="btn" id="2" onclick="input(this.id)">2</button>
+			<button class="btn" id="3" onclick="input(this.id)">3</button>
+			<button class="btn" id="+" onclick="input(this.id)">+</button>
+			<button class="btn" id="-" onclick="input(this.id)">-</button>
+			<button class="btn" id="0" onclick="input(this.id)">0</button>
+			<button class="btn" id="00" onclick="input(this.id)">00</button>
+			<button class="btn" id="dot" onclick="input(this.id)">.</button>
+			<button class="btn" id="equal" onclick="equal()">=</button>
+		</div>
+		<div id="foot">
+			<span id="footLeft">@GT</span>
+			<span id="footRight">Feedback</span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function load() {
+			document.getElementById('screen').focus();
+		}
+		function input(id){
+			// alert(document.getElementById(id).innerHTML);
+			// alert(document.getElementById('screen').value);
+			var inputContent = document.getElementById(id).innerHTML;
+
+			document.getElementById("screen").value = document.getElementById("screen").value + inputContent;
+		}
+		function back(){
+			var screen = document.getElementById('screen');
+			screen.value = screen.value.substring(0,screen.value.length-1);
+		}
+		function equal(){
+			var screen = document.getElementById('screen');
+			screen.value = eval(screen.value);
+		}
+		function c(){
+			document.getElementById('screen').value = "";
+		}
+	</script>
+
+</body>
+</html>
