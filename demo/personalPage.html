@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>personalPage</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+    </script>
+    <style type="text/css">
+    	* {
+    		margin: 0px;
+    		padding: 0px;
+    		box-sizing: border-box;
+    	}
+    	a:link,a:visited {
+    		text-decoration: none;
+    	}
+    	body {
+    		background-color: rgb(136,136,136s);
+    	}
+    	#header {
+    		height: 80px;
+    		width: 100%;
+    		background-color: rgb(114,40,114);
+    		position: fixed;
+    		z-index: 2;
+   			top: 0px;
+    	}
+    	#headerContent {
+    		width: 1020px;
+    		height: 80px;
+    		margin: 0px auto;
+    		background-color: red;
+   	 	}
+   	 	#logo {
+   	 		float: left;
+   	 		height: 50px;
+   	 		margin: 15px 15px;
+   	 	}
+   	 	.menu {
+   	 		float: right;
+   	 		width: 120px;
+   	 		height: 40px;
+   	 		margin: 20px 0px;
+   	 		padding: 10px 12px;
+   	 		text-align: center;
+   	 		font-family: Arial;
+   	 		font-size: 16px;
+   	 		border: none;
+   	 		cursor: pointer;
+   	 		color: silver;
+   	 		background-color: green;
+   	 	}
+   	 	#mainBody {
+   	 		width: 1020px;
+   	 		margin: 0px auto;
+   	 	}
+   	 	#aboutAdress {
+   	 		height: 80px;
+   	 		width: 1020px;
+   	 		margin: 0px auto;
+   	 		background-color: lightblue;
+   	 	}
+   	 	#about {
+   	 		height: 1000px;
+   	 		width: 1020px;
+   	 		margin: 0px auto;
+   	 		position: relative;
+   	 		background-color: lightblue;
+   	 	}
+   	 	#portfolioAdress {
+   	 		height: 80px;
+   	 		width: 1020px;
+   	 		margin: 0px auto;
+   	 		position: absolute;
+   	 		bottom: 0px;
+   	 		background-color: yellow;
+   	 	}
+   	 	#portfolio {
+   	 		height: 1000px;
+   	 		width: 1020px;
+   	 		margin: 0px auto;
+   	 		position: relative;
+   	 		background-color: brown;
+   	 	}
+   	 	#contactAdress {
+   	 		height: 80px;
+   	 		width: 1020px;
+   	 		margin: 0px auto;
+   	 		position: absolute;
+   	 		bottom: 0px;
+   	 		background-color: lightyellow;
+   	 	}
+   	 	#contact {
+   	 		height: 1000px;
+   	 		width: 1020px;
+   	 		margin: 0px auto;
+   	 		background-color: lightyellow;
+   	 	}
+    </style>
+</head>
+
+<body>
+    <div id="header">
+    	<div id="headerContent">
+    		<img id="logo" src="http://qlip.in/images/qlip.png">
+	    	<a href="#contactAdress" index="0" class="menu">CONTACT</a>
+	    	<a href="#portfolioAdress" index="1" class="menu">PORTFOLIO</a>
+	    	<a href="#aboutAdress" index="2" class="menu">ABOUT</a>
+    	</div>
+    </div>
+    <div id="mainBody">
+    	<div id="aboutAdress"></div>
+    	<div id="about">1
+    		<div id="portfolioAdress"></div>
+    	</div>
+    	
+    	<div id="portfolio">2
+    		<div id="contactAdress"></div>
+    	</div>
+    	
+    	<div id="contact">3</div>
+    </div>
+    <div id="footer"></div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".menu").mouseover(function() {
+			$(this).css("color","black");
+		});
+		$(".menu").mouseleave(function() {
+			if ($(this).attr("name")=="clicked") {
+
+			} else {
+				$(this).css("color","silver");
+			}
+		});
+		// alert($(".menu").length - 1);
+		$(".menu").click(function() {
+			for (var i = 0; i <= $(".menu").length-1; i++) {
+				// alert($(this).attr("index"));
+				// alert($(".menu").eq(i).attr("index"));
+				if (i!=$(this).attr("index")) {
+					// $(".menu").eq(i).html("ddddd");
+					$(".menu").eq(i).attr("name","");
+					$(".menu").eq(i).css("color","silver");
+					$(".menu").eq(i).css("background-color","green");
+				}
+			}
+			$(this).css("background-color","rgb(231,231,231)");
+			$(this).css("color","black");
+			$(this).attr("name","clicked");
+
+		});
+	});
+</script>
+
+</html>
