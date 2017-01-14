@@ -15,7 +15,7 @@
     		text-decoration: none;
     	}
     	body {
-    		background-color: rgb(136,136,136s);
+    		background-color: rgb(136,136,136);
     	}
     	#header {
     		height: 80px;
@@ -26,10 +26,10 @@
    			top: 0px;
     	}
     	#headerContent {
-    		width: 1020px;
+    		width: 70%;
     		height: 80px;
     		margin: 0px auto;
-    		background-color: red;
+    		/*background-color: red;*/
    	 	}
    	 	#logo {
    	 		float: left;
@@ -48,28 +48,29 @@
    	 		border: none;
    	 		cursor: pointer;
    	 		color: silver;
-   	 		background-color: green;
+   	 		/*background-color: green;*/
    	 	}
    	 	#mainBody {
-   	 		width: 1020px;
+        min-width: 1020px;
+   	 		width: 70%;
    	 		margin: 0px auto;
    	 	}
    	 	#aboutAdress {
    	 		height: 80px;
-   	 		width: 1020px;
+   	 		width: 100%;
    	 		margin: 0px auto;
    	 		background-color: lightblue;
    	 	}
    	 	#about {
    	 		height: 1000px;
-   	 		width: 1020px;
+   	 		width: 100%;
    	 		margin: 0px auto;
    	 		position: relative;
    	 		background-color: lightblue;
    	 	}
    	 	#portfolioAdress {
    	 		height: 80px;
-   	 		width: 1020px;
+   	 		width: 100%;
    	 		margin: 0px auto;
    	 		position: absolute;
    	 		bottom: 0px;
@@ -77,25 +78,69 @@
    	 	}
    	 	#portfolio {
    	 		height: 1000px;
-   	 		width: 1020px;
+   	 		width: 100%;
    	 		margin: 0px auto;
    	 		position: relative;
    	 		background-color: brown;
+        display: table;//child element can not extend the parent element
    	 	}
    	 	#contactAdress {
    	 		height: 80px;
-   	 		width: 1020px;
+   	 		width: 100%;
    	 		margin: 0px auto;
    	 		position: absolute;
    	 		bottom: 0px;
-   	 		background-color: lightyellow;
+   	 		background-color: lightblue;
    	 	}
    	 	#contact {
    	 		height: 1000px;
-   	 		width: 1020px;
+   	 		width: 100%;
    	 		margin: 0px auto;
    	 		background-color: lightyellow;
    	 	}
+      #about #left {
+        width: 70%;
+        float: left;
+        background-color: red;
+      }
+      #about #left p {
+        margin: 20px 10px;
+        color: white;
+        font-family: Arial;
+        font-size: 18px;
+      }
+      #about #right {
+        width: 30%;
+        float: right;
+        background-color: blue;
+      }
+      #about #right img {
+        width: 100%;
+        border-radius: 50%;
+      }
+      #portfolio img {
+        width: 40%;
+        margin: 10px 0px 0px 7%;
+        float: left;
+      }
+      #contact #left {
+        width: 30%;
+        float: left;
+      }
+      #contact #right {
+        width: 70%;
+        float: right;
+      }
+      #footer #upper {
+        height: 200px;
+        width: 100%;
+        background-color: lightblue;
+      }
+      #footer #bottom {
+        height: 80px;
+        width: 100%;
+        background-color: rgb(114,40,114);
+      }
     </style>
 </head>
 
@@ -110,17 +155,49 @@
     </div>
     <div id="mainBody">
     	<div id="aboutAdress"></div>
-    	<div id="about">1
+    	<div id="about">
+        <div id="left">
+        <p>Front-End Developer and UX/UI designer, with practical experience in project management, branding strategy, and creative direction; devoted to functional programming and information architecture.</p>
+        <p>Web Developer - User Experience Designer Graphic Artist</p>
+        </div>
+        <div id="right">
+          <img src="http://qlip.in/images/avatar.jpg">
+        </div>
     		<div id="portfolioAdress"></div>
     	</div>
     	
-    	<div id="portfolio">2
+    	<div id="portfolio">
+        <img src="http://qlip.in/images/YMCA-Realtor-Donation-3.jpg">
+        <img src="http://qlip.in/images/webcaballero.jpg">
+        <img src="http://qlip.in/images/webmarqas.jpg">
+        <img src="http://qlip.in/images/webbrandaxis.jpg">
+        <img src="http://qlip.in/images/panacea1.jpg">
+        <img src="http://qlip.in/images/webgatomalo.jpg">
     		<div id="contactAdress"></div>
     	</div>
     	
-    	<div id="contact">3</div>
+    	<div id="contact">
+        <div id="left">
+          <form>
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="name" placeholder="Email Address">
+            <input type="text" name="name" placeholder="Phone Number">
+            <input type="text" name="name" placeholder="Message">
+            <input type="submit" name="send" value="Send">
+          </form>
+        </div>
+        <div id="right">
+          <p>Want to get in touch with me? Be it to request more info about myself or my experience, to ask for my resume, tips on how to solve your sudoku, random questions about the universe and the meaning of life, or even if only for some nice Fika here in stunning Toronto... just feel free to drop me a line anytime.
+          </p>
+          <p>I promise to reply A.S.A.P.</p>
+          <p>Note: No spam/soliciting pour moi, merci :)</p>
+        </div>
+      </div>
     </div>
-    <div id="footer"></div>
+    <div id="footer">
+      <div id="upper"></div>
+      <div id="bottom"></div>
+    </div>
 </body>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -143,7 +220,7 @@
 					// $(".menu").eq(i).html("ddddd");
 					$(".menu").eq(i).attr("name","");
 					$(".menu").eq(i).css("color","silver");
-					$(".menu").eq(i).css("background-color","green");
+					$(".menu").eq(i).css("background-color","rgb(114,40,114)");
 				}
 			}
 			$(this).css("background-color","rgb(231,231,231)");
